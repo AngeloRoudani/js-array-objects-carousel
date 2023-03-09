@@ -78,7 +78,7 @@ imagesDom[imageActive].classList.add('show'); // immetto la classe (show) per re
 thumbFilter[imageActive].classList.add('border_photo');
 
 console.log(thumbFilter);
-
+//thumbnails click
 const buttonThumb = document.getElementById('button_thumb');
 
 buttonThumb.addEventListener('click', 
