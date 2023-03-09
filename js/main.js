@@ -42,6 +42,10 @@ for (let i = 0; i < imagesList.length; i++) { //introduco le immagini dinamicame
     const imageLabel = imagesList[i];
     const imageWrapper = `<div class="images">
                             <img class="photo" src="${imageLabel.image}" alt="immagine"/>
+                            <div class="title-text">
+                                <h3>${imageLabel.title}</h3>
+                                <div>${imageLabel.text}</div>
+                            </div>
                           </div> `;
 
     sliderContent += imageWrapper;   
