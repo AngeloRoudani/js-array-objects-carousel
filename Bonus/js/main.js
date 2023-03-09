@@ -61,8 +61,8 @@ let thumbContent = "";
 
 for (let i = 0; i < imagesList.length; i++) { //introduco le immagini dinamicamente nel thumbDom
     const imageLabel = imagesList[i];
-    const thumbPhoto = `<img class="photo_thumb" src="${imageLabel.image}" alt="immagine"/>`;
-
+    const thumbPhoto = `<img id="button_thumb" class="photo_thumb" src="${imageLabel.image}" alt="immagine"/>`;
+    
     thumbContent += thumbPhoto;   
     console.log ("slider:" + thumbDom);                      
 } 
@@ -77,7 +77,22 @@ let imageActive = 0;
 imagesDom[imageActive].classList.add('show'); // immetto la classe (show) per rendere visibile la prima immagine
 thumbFilter[imageActive].classList.add('border_photo');
 
-console.log(imagesDom);
+console.log(thumbFilter);
+
+const buttonThumb = document.getElementById('button_thumb');
+
+buttonThumb.addEventListener('click', 
+    function() {
+        buttonThumb.classList.add('border_photo');
+        thumbFilter[imageActive].classList.remove('border_photo');
+    }
+)
+
+
+
+
+
+
 
 // creo un ascoltatore di eventi per cliccare sui pulsanti e far slittare la classe (show)
 // all'infinito...
@@ -85,6 +100,7 @@ console.log(imagesDom);
 const nextDom = document.querySelector('.next')
 
 const prevDom = document.querySelector('.prev')
+
 
 nextDom.addEventListener('click' , 
     
@@ -113,32 +129,6 @@ nextDom.addEventListener('click' ,
     
 )
 
-setInterval(function() {
-
-    
-    if (imageActive < imagesDom.length - 1) {
-        imagesDom[imageActive].classList.remove('show');
-        thumbFilter[imageActive].classList.remove('border_photo');
-        imageActive++;
-        imagesDom[imageActive].classList.add('show');
-        thumbFilter[imageActive].classList.add('border_photo');
-
-        console.log (nextDom);
-    
-    } else if (imageActive == imagesDom.length - 1) {
-        imagesDom[imageActive].classList.remove('show');
-        thumbFilter[imageActive].classList.remove('border_photo');
-        imageActive = 0;
-        imagesDom[imageActive].classList.add('show');
-        thumbFilter[imageActive].classList.add('border_photo');
-    }
-
-
-    
-}, 3000);
-
-console.log(setInterval);
-
 prevDom.addEventListener('click' , 
 
     function() {
@@ -160,6 +150,33 @@ prevDom.addEventListener('click' ,
 
     }
 )
+
+//Carosello automatico
+
+setInterval(function() {
+
+    if (imageActive < imagesDom.length - 1) {
+        imagesDom[imageActive].classList.remove('show');
+        thumbFilter[imageActive].classList.remove('border_photo');
+        imageActive++;
+        imagesDom[imageActive].classList.add('show');
+        thumbFilter[imageActive].classList.add('border_photo');
+
+        console.log (nextDom);
+    
+    } else if (imageActive == imagesDom.length - 1) {
+        imagesDom[imageActive].classList.remove('show');
+        thumbFilter[imageActive].classList.remove('border_photo');
+        imageActive = 0;
+        imagesDom[imageActive].classList.add('show');
+        thumbFilter[imageActive].classList.add('border_photo');
+    }
+
+}, 3000);
+
+
+
+
 
 
 

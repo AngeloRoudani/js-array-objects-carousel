@@ -66,6 +66,7 @@
     object-fit: cover;
     display: block;
     filter: grayscale(80%);
+    cursor: pointer;
 }
 
 .border_photo {
