@@ -78,22 +78,8 @@ imagesDom[imageActive].classList.add('show'); // immetto la classe (show) per re
 thumbFilter[imageActive].classList.add('border_photo');
 
 console.log(thumbFilter);
-//thumbnails click
 
-for( let i = 0; i <= thumbFilter.length; i++){
-    let buttonThumb = thumbFilter[i];
-    console.log(buttonThumb);
-    
-    buttonThumb.addEventListener('click', 
-    
-    function() {
-        
-        this.classList.add('border_photo');
-        thumbFilter.classList.remove('border_photo');
-        
-    }
-)
-}
+
 
 
 
@@ -180,6 +166,26 @@ setInterval(function() {
     }
 
 }, 3000);
+
+//thumbnails click
+
+for( let i = 0; i <= thumbFilter.length -1; i++){
+
+    let buttonThumb = thumbFilter[i];
+    console.log(buttonThumb);
+
+    buttonThumb.addEventListener('click', 
+    
+    function() {
+        if (thumbFilter[imageActive]){
+            this.classList.add('border_photo');
+            for ( let i = 0; i <= thumbFilter.length - 1 ; i++){
+                thumbFilter[imageActive].classList.remove('border_photo');
+            }
+        }
+    }
+    );
+}
 
 
 
