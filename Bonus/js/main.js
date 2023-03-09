@@ -61,7 +61,7 @@ let thumbContent = "";
 
 for (let i = 0; i < imagesList.length; i++) { //introduco le immagini dinamicamente nel thumbDom
     const imageLabel = imagesList[i];
-    const thumbPhoto = `<img id="button_thumb" class="photo_thumb" src="${imageLabel.image}" alt="immagine"/>`;
+    const thumbPhoto = `<img class="photo_thumb" src="${imageLabel.image}" alt="immagine"/>`;
     
     thumbContent += thumbPhoto;   
     console.log ("slider:" + thumbDom);                      
@@ -79,14 +79,21 @@ thumbFilter[imageActive].classList.add('border_photo');
 
 console.log(thumbFilter);
 //thumbnails click
-const buttonThumb = document.getElementById('button_thumb');
 
-buttonThumb.addEventListener('click', 
+for( let i = 0; i <= thumbFilter.length; i++){
+    let buttonThumb = thumbFilter[i];
+    console.log(buttonThumb);
+    
+    buttonThumb.addEventListener('click', 
+    
     function() {
-        buttonThumb.classList.add('border_photo');
-        thumbFilter[imageActive].classList.remove('border_photo');
+        
+        this.classList.add('border_photo');
+        thumbFilter.classList.remove('border_photo');
+        
     }
 )
+}
 
 
 
