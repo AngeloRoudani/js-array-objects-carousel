@@ -113,6 +113,32 @@ nextDom.addEventListener('click' ,
     
 )
 
+setInterval(function() {
+
+    
+    if (imageActive < imagesDom.length - 1) {
+        imagesDom[imageActive].classList.remove('show');
+        thumbFilter[imageActive].classList.remove('border_photo');
+        imageActive++;
+        imagesDom[imageActive].classList.add('show');
+        thumbFilter[imageActive].classList.add('border_photo');
+
+        console.log (nextDom);
+    
+    } else if (imageActive == imagesDom.length - 1) {
+        imagesDom[imageActive].classList.remove('show');
+        thumbFilter[imageActive].classList.remove('border_photo');
+        imageActive = 0;
+        imagesDom[imageActive].classList.add('show');
+        thumbFilter[imageActive].classList.add('border_photo');
+    }
+
+
+    
+}, 3000);
+
+console.log(setInterval);
+
 prevDom.addEventListener('click' , 
 
     function() {
